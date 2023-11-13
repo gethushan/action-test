@@ -21,3 +21,7 @@ jobs:
 
     - name: Run calculate.py
       run: python calculate.py
+
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
