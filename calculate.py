@@ -1,20 +1,21 @@
 import json
 import requests
+import os
 
 # Define the GitHub repository details
 repository_owner = 'gethushan'
 repository_name = 'action-test'
 existing_file_path = './data.json'  # Path to the existing JSON file in the repository
 new_data_file_path = './new_data.json'  # Path to the new data JSON file in the repository
-github_token = 'YOUR_GITHUB_TOKEN'
+github_token = os.getenv('GITHUB_TOKEN')  # Access the GITHUB_TOKEN environment variable
 
 # Define the URL to the GitHub raw JSON files
 raw_existing_json_url = f'https://raw.githubusercontent.com/{repository_owner}/{repository_name}/main/{existing_file_path}'
 raw_new_data_json_url = f'https://raw.githubusercontent.com/{repository_owner}/{repository_name}/main/{new_data_file_path}'
 
 # Fetch the existing JSON data from the GitHub repository
-response_existing = requests.get(raw_existing_json_url)
-response_new_data = requests.get(raw_new_data_json_url)
+response_existing = requests.get(raw_existing_json_url, headers={'Authorization': f'token {github_token}'})
+response_new_data = requests.get(raw_new_data_json_url, headers={'Authorization': f'token {github_token}'})
 
 if response_existing.status_code == 200 and response_new_data.status_code == 200:
     existing_data = json.loads(response_existing.text)
@@ -46,4 +47,3 @@ if response_existing.status_code == 200 and response_new_data.status_code == 200
         print(f"Failed to update JSON file on GitHub. Status Code: {update_response.status_code}")
 else:
     print("Failed to fetch JSON data from GitHub.")
-
