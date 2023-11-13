@@ -19,6 +19,9 @@ jobs:
       with:
         python-version: '3.x'
 
+    - name: Install requests library
+      run: pip install requests
+
     - name: Run calculate.py
       run: python calculate.py
 
