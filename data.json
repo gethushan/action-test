@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Ravichandran Gethushan",
+      "mail": "gethushan@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Thivviya Ravichandran",
+      "mail": "Thivviya@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Thivviya Ravichandran",
+      "mail": "Thivviya@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Thivviya Ravichandran",
+      "mail": "Thivviya@gmail.com"
+    },
+    {
+      "id": 10,
+      "name": "Selvaratnam Ravichandran",
+      "mail": "kiruvision@gmail.com"
+    }
+  ]
+}
