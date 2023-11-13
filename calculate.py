@@ -5,8 +5,8 @@ import os
 # Define the GitHub repository details
 repository_owner = 'gethushan'
 repository_name = 'action-test'
-existing_file_path = './data.json'  # Path to the existing JSON file in the repository
-new_data_file_path = './new_data.json'  # Path to the new data JSON file in the repository
+existing_file_path = 'data.json'  # Path to the existing JSON file in the repository
+new_data_file_path = 'new_data.json'  # Path to the new data JSON file in the repository
 github_token = os.getenv('GITHUB_TOKEN')  # Access the GITHUB_TOKEN environment variable
 
 # Define the URL to the GitHub raw JSON files
