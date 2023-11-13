@@ -32,7 +32,7 @@ if response_existing.status_code == 200 and response_new_data.status_code == 200
     update_payload = {
         "message": "Update JSON file",
         "content": updated_data_json,
-        "sha": existing_data['sha'],
+        "sha": existing_data["sha"],
     }
     headers = {
         'Authorization': f'token {github_token}',
