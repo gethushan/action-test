@@ -1,13 +1,13 @@
-name: Update JSON on Merge Request
+name: Run calculate.py on PR merge
 
 on:
   pull_request:
     types:
-      - opened
-      - synchronize
+      - closed
 
 jobs:
-  update-json:
+  calculate:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -17,16 +17,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.x
+        python-version: '3.x'
 
-    - name: Update JSON
+    - name: Install dependencies
       run: |
-        python calculate.py  # Replace with the actual filename of your Python script
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-    - name: Commit and push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "Update JSON file"
-        git push
+    - name: Run calculate.py
+      run: python calculate.py
